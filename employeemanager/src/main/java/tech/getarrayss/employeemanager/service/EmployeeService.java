@@ -1,18 +1,22 @@
-package service;
+package tech.getarrayss.employeemanager.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tech.getarrayss.employeemanager.exception.UserNotFoundException;
 import tech.getarrayss.employeemanager.model.Employee;
 import tech.getarrayss.employeemanager.repo.EmployeeRepo;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
 
 @Service
+@Transactional
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
 
+    @Autowired
     public EmployeeService(EmployeeRepo employeeRepo){
         this.employeeRepo=employeeRepo;
     }
